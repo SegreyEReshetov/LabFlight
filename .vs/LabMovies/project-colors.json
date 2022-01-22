@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "fa76e172-c90b-47e7-8d73-16097f63f0ac": {
+      "ProjectGuid": "fa76e172-c90b-47e7-8d73-16097f63f0ac",
+      "DisplayName": "Business",
+      "ColorIndex": 0
+    },
+    "77e4728d-6ed0-400c-80b1-725f39c33fd3": {
+      "ProjectGuid": "77e4728d-6ed0-400c-80b1-725f39c33fd3",
+      "DisplayName": "Business.Services",
+      "ColorIndex": 1
+    },
+    "d28201fc-1021-4943-b5dd-bec40a046b79": {
+      "ProjectGuid": "d28201fc-1021-4943-b5dd-bec40a046b79",
+      "DisplayName": "Repository",
+      "ColorIndex": 2
+    },
+    "bd70c817-75d4-4005-b7c5-be55aad785f8": {
+      "ProjectGuid": "bd70c817-75d4-4005-b7c5-be55aad785f8",
+      "DisplayName": "Business.Interop",
+      "ColorIndex": 3
+    },
+    "98a7302c-ccbc-423b-becc-cac01dba309e": {
+      "ProjectGuid": "98a7302c-ccbc-423b-becc-cac01dba309e",
+      "DisplayName": "LabFlights",
+      "ColorIndex": 4
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Прочие файлы",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 5
+}

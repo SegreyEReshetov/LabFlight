@@ -1,0 +1,67 @@
+﻿@model Business.Interop.FlightDto
+
+@{
+    ViewData["Title"] = "Добавление";
+}
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h4>Создание рейса</h4>
+    <form asp-controller="Flight" asp-action="Edit" method="post">
+        @if(Model != null)
+        {
+            <input type = "hidden" name = "Id" value = "@Model.Id"></input>
+        }
+        <table class = "table">
+            <tr>
+                <td>Аэропорт:</td>
+                <td>
+                    <select name = "DepartureAirportId" required>
+                        @foreach (var airport in ViewBag.Airports)
+                        {
+                            if (Model?.DepartureAirport.Id == airport.Id)
+                            {
+                                <option value = "@airport.Id" selected>@airport.Name</option>
+                            }
+                            else
+                            {
+                                <option value = "@airport.Id">@airport.Name</option>
+                            }
+                        }
+                    </select>
+                    </td>
+            </tr>
+            <tr>
+                <td>Дата вылета:</td>
+                <td><input type="text" required name="Arrival" attern="[0-9]{2}.[0-9]{2}.[0-9]{4}" placeholder="01.01.1999"  value="@Model?.Arrival" /></td>
+            </tr>
+            <tr>
+                <td>Дата прилета:</td>
+                <td><input type="text" required name="Departure" attern="[0-9]{2}.[0-9]{2}.[0-9]{4}" placeholder="01.01.1999"  value="@Model?.Departure" /></td>
+            </tr>
+            <tr>
+            <td>Статус полета:</td>
+            
+                <td>
+                    <select name = "FlightStatusId" required>
+                        @foreach (var flightstatus in ViewBag.FlightStatuses)
+                        {
+                            if (Model?.FlightStatus.Id == flightstatus.Id)
+                            {
+                                <option value = "@flightstatus.Id" selected>@flightstatus.Name</option>
+                            }
+                            else
+                            {
+                                <option value = "@flightstatus.Id">@flightstatus.Name</option>
+                            }
+                        }
+                    </select>
+                    </td>
+            </tr>
+        </table>
+        <input type="submit" value="Отправить" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿@model Business.Interop.PlaneDto
+
+@{
+    ViewData["Title"] = "Добавление";
+}
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h4>Добавление самолета</h4>
+    <form asp-controller="Plane" asp-action="Edit" method="post">
+        @if(Model != null)
+        {
+            <input type = "hidden" name = "Id" value = "@Model.Id"></input>
+        }
+        <table class = "table">
+            <tr>
+                <td>Модель:</td>
+                <td><input type="text" required name="Model" value="@Model?.Model" /></td>
+            </tr>
+            <tr>
+                <td>Дальность:</td>
+                <td><input type="text" required name="Range" value="@Model?.Range" /></td>
+            </tr>
+        </table>
+        <input type="submit" value="Отправить" />
+    </form>
+</body>
+</html>

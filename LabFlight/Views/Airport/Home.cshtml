@@ -1,0 +1,45 @@
+﻿@using Business.Interop;
+@model AirportDto
+
+@{
+    ViewData["Title"] = "Информация о Аэропорте";
+}
+<!DOCTYPE html>
+
+<html>
+<body>
+    @{
+        
+    <table class="table">
+        <tr>
+            <th>Название</th>
+            <th>Долгота</th>
+            <th>Широта</th>
+            <th>Город</th>
+            <th>Рейсы</th>
+        </tr>
+        <tr>
+            <th>@Model.Name</th>
+            <th>@Model.Latitude</th>
+            <th>@Model.Longitude</th>
+            <th>@Model.City.Name</th>
+            @if(!Model.Flights.Any())
+            {
+                    <td>Нет рейсов</td>
+            }
+            else
+            {
+                <td>
+                    @foreach(var flight in Model.Flights)
+                    {
+                       @flight.Id<br />
+                    }
+                </td>        
+            }
+        </tr>
+        </table>
+        <p><a asp-controller="Airport" asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a></p>
+    <p><a asp-controller="Airport" asp-action="Index" asp-route-id="@Model.Id">Вернуться к списку аэропортов</a></p>
+   }
+</body>
+</html>

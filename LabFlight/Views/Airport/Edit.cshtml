@@ -1,0 +1,53 @@
+﻿@model Business.Interop.AirportDto
+
+@{
+    ViewData["Title"] = "Добавление";
+}
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h4>Создание аэропорта</h4>
+    <form asp-controller="Airport" asp-action="Edit" method="post">
+        @if(Model != null)
+        {
+            <input type = "hidden" name = "Id" value = "@Model.Id"></input>
+        }
+        <table class = "table">
+            <tr>
+                <td>Название:</td>
+                <td><input type="text" required name="Name" value="@Model?.Name" /></td>
+            </tr>
+            <tr>
+                <td>Долгота:</td>
+                <td><input type="text" required name="Latitude" value="@Model?.Latitude" /></td>
+            </tr>
+            <tr>
+            <td>Широта:</td>
+                <td><input type="text"  required name="Longitude" value="@Model?.Longitude" /></td>
+            </tr>
+            <tr>
+                <td>Город:</td>
+                <td>
+                    <select name = "CityId" required>
+                        @foreach (var city in ViewBag.Cities)
+                        {
+                            if (Model?.City.Id == city.Id)
+                            {
+                                <option value = "@city.Id" selected>@city.Name</option>
+                            }
+                            else
+                            {
+                                <option value = "@city.Id">@city.Name</option>
+                            }
+                        }
+                    </select>
+                </td>
+
+            </tr>
+        </table>
+        <input type="submit" value="Отправить" />
+    </form>
+</body>
+</html>

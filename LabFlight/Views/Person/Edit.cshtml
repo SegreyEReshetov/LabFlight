@@ -1,0 +1,35 @@
+﻿@model Business.Interop.PersonDto
+
+@{
+    ViewData["Title"] = "Добавление";
+}
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h4>Добавление человека</h4>
+    <form asp-controller="Person" asp-action="Edit" method="post">
+        @if(Model != null)
+        {
+            <input type = "hidden" name = "Id" value = "@Model.Id"></input>
+        }
+        <table class = "table">
+            <tr>
+                <td>ФИО:</td>
+                <td><input type="text" required name="Fio" value="@Model?.Fio" /></td>
+            </tr>
+            <tr>
+                <td>Паспорт:</td>
+                <td><input type="text" placeholder="20** 93****" required name="Passport" value="@Model?.Passport" /></td>
+            </tr>
+            <tr>
+                <td>Дата рождения:</td>
+          
+                <td><input type="text" pattern="[0-9]{2}.[0-9]{2}.[0-9]{4}" placeholder="01.01.1999" required name="Birthdate" value="@Model?.Birthdate" /></td>
+            </tr>
+        </table>
+        <input type="submit" value="Отправить" />
+    </form>
+</body>
+</html>

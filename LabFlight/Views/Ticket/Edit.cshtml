@@ -1,0 +1,78 @@
+﻿@model Business.Interop.TicketDto
+
+@{
+    ViewData["Title"] = "Добавление";
+}
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h4>Добавление билетов</h4>
+    <form asp-controller="Ticket" asp-action="Edit" method="post">
+        @if(Model != null)
+        {
+            <input type = "hidden" name = "Id" value = "@Model.Id"></input>
+        }
+        <table class = "table">
+            <tr>
+                <td>ФИО:</td>
+                 <td>
+                    <select name = "PersonId" required>
+                        @foreach (var person in ViewBag.People)
+                        {
+                            if (Model?.Person.Id == person.Id)
+                            {
+                                <option value = "@person.Id" selected>@person.Fio</option>
+                            }
+                            else
+                            {
+                                <option value = "@person.Id">@person.Fio</option>
+                            }
+                        }
+                    </select>
+                </td>
+
+            </tr>
+            <tr>
+                <td>Место:</td>
+                <td>
+                    <select name = "SeatId" required>
+                        @foreach (var seat in ViewBag.Seats)
+                        {
+                            if (Model?.Seat.Id == seat.Id)
+                            {
+                                <option value = "@seat.Id" selected>@seat.Num</option>
+                            }
+                            else
+                            {
+                                <option value = "@seat.Id">@seat.Num</option>
+                            }
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Рейс:</td>
+                <td>
+                    <select name = "FlightId" required>
+                        @foreach (var flight in ViewBag.Flights)
+                        {
+                            if (Model?.Flight.Id == flight.Id)
+                            {
+                                <option value = "@flight.Id" selected>@flight.Id</option>
+                            }
+                            else
+                            {
+                                <option value = "@flight.Id">@flight.Id</option>
+                            }
+                        }
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Отправить" />
+    </form>
+</body>
+</html>
+

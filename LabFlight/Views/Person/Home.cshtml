@@ -1,0 +1,43 @@
+﻿@using Business.Interop;
+@model PersonDto
+
+@{
+    ViewData["Title"] = "Информация о человеке";
+}
+<!DOCTYPE html>
+
+<html>
+<body>
+    @{
+        
+    <table class="table">
+        <tr>
+            <th>Фамилия Имя Отчество</th>
+            <th>Дата рождения</th>
+            <th>Паспорт</th>
+            <th>Билеты</th>
+        </tr>
+        <tr>
+            <th>@Model.Fio</th>
+            <th>@Model.Birthdate</th>
+            <th>@Model.Passport</th>
+            @if(!Model.Tickets.Any())
+            {
+                    <td>Нет билетов</td>
+            }
+            else
+            {
+                <td>
+                    @foreach(var ticket in Model.Tickets)
+                    {
+                       @ticket.Id<br />
+                    }
+                </td>        
+            }
+        </tr>
+        </table>
+        <p><a asp-controller="Person" asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a></p>
+    <p><a asp-controller="Person" asp-action="Index" asp-route-id="@Model.Id">Вернуться к списку людей</a></p>
+   }
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿@using Business.Interop;
+@model PlaneDto
+
+@{
+    ViewData["Title"] = "Информация о Самолете";
+}
+<!DOCTYPE html>
+
+<html>
+<body>
+    @{
+        
+    <table class="table">
+        <tr>
+            <th>Модель</th>
+            <th>Дистанция</th>
+            <th>Места</th>
+        </tr>
+        <tr>
+            <th>@Model.Model</th>
+            <th>@Model.Range</th>
+            @if(!Model.Seats.Any())
+            {
+                    <td>Нет мест</td>
+            }
+            else
+            {
+                <td>
+                    @foreach(var seat in Model.Seats)
+                    {
+                       @seat.Num<br />
+                    }
+                </td>        
+            }
+        </tr>
+        </table>
+        <p><a asp-controller="Plane" asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a></p>
+    <p><a asp-controller="Plane" asp-action="Index" asp-route-id="@Model.Id">Вернуться к списку самолетов</a></p>
+   }
+</body>
+</html>

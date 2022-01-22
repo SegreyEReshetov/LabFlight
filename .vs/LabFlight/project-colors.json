@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c4fa371f-9ad0-4216-8423-bf1c94e3beac": {
+      "ProjectGuid": "c4fa371f-9ad0-4216-8423-bf1c94e3beac",
+      "DisplayName": "LabFlight",
+      "ColorIndex": 0
+    },
+    "fa76e172-c90b-47e7-8d73-16097f63f0ac": {
+      "ProjectGuid": "fa76e172-c90b-47e7-8d73-16097f63f0ac",
+      "DisplayName": "Business",
+      "ColorIndex": 1
+    },
+    "77e4728d-6ed0-400c-80b1-725f39c33fd3": {
+      "ProjectGuid": "77e4728d-6ed0-400c-80b1-725f39c33fd3",
+      "DisplayName": "Business.Services",
+      "ColorIndex": 2
+    },
+    "d28201fc-1021-4943-b5dd-bec40a046b79": {
+      "ProjectGuid": "d28201fc-1021-4943-b5dd-bec40a046b79",
+      "DisplayName": "Repository",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

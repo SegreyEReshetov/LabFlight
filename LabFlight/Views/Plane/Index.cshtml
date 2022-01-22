@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Business.Interop.PlaneDto>
+@{
+    ViewData["Title"] = "Самолеты";
+}
+
+<!DOCTYPE html>
+
+<html>
+    <body>
+        @if(!Model.Any())
+    {
+        <p>Самолетов нет, добавьте новый</p>
+    }
+    else
+    {
+         <table class="table">
+            <tr>
+                <th>Модель</th>
+                <th>Дальность</th>
+            </tr>
+            @foreach (var plane in Model)
+            {
+                <tr>
+                    <td>@plane.Model</td>
+                    <td>@plane.Range</td>
+                    <td><a asp-controller="Plane" asp-action="Home" asp-route-id="@plane.Id">Подробности</a></td>
+                    <td><a asp-controller="Plane" asp-action = "Delete" asp-route-id="@plane.Id">Удалить</a> </td>
+                </tr>
+            }
+        </table>
+        <br/>
+    }
+    <p><a asp-controller="Plane" asp-action="Edit">Создать</a></p>
+</body>
+</html>

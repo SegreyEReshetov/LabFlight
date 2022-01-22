@@ -1,0 +1,33 @@
+﻿@using Business.Interop;
+@model TicketDto
+
+@{
+    ViewData["Title"] = "Информация о Билетах";
+}
+<!DOCTYPE html>
+
+<html>
+<body>
+    @{
+        
+    <table class="table">
+        <tr>
+            <th>ФИО</th>
+            <th>Номер места</th>
+            <th>Класс билета</th>
+            <th>Номер самолета</th>
+            <th>Номер рейса</th>
+        </tr>
+        <tr>
+            <th>@Model.Person.Fio</th>
+            <th>@Model.Seat.Num</th>
+            <th>@Model.Seat.Service.Name</th>
+            <th>@Model.Seat.Plane.Model</th>
+            <th>@Model.Flight.Id</th>
+        </tr>
+        </table>
+        <p><a asp-controller="Ticket" asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a></p>
+    <p><a asp-controller="Ticket" asp-action="Index" asp-route-id="@Model.Id">Вернуться к списку билетов</a></p>
+   }
+</body>
+</html>

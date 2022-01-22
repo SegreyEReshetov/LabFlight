@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Business.Interop.AirportDto>
+@{
+    ViewData["Title"] = "Аэропорты";
+}
+
+<!DOCTYPE html>
+
+<html>
+    <body>
+        @if(!Model.Any())
+    {
+        <p>Аэропортов нет, добавьте новый</p>
+    }
+    else
+    {
+         <table class="table">
+            <tr>
+                <th>Название</th>
+                <th>Долгота</th>
+                <th>Широта</th>
+                <th>Город</th>
+                <th>Страна</th>
+            </tr>
+            @foreach (var airport in Model)
+            {
+                <tr>
+                    <td>@airport.Name</td>
+                    <td>@airport.Latitude</td>
+                    <td>@airport.Longitude</td>
+                    <td>@airport.City.Name</td>
+                    <td>@airport.City.Region.Country.Name</td>
+                    <td><a asp-controller="Airport" asp-action="Home" asp-route-id="@airport.Id">Подробности</a></td>
+                    <td><a asp-controller="Airport" asp-action = "Delete" asp-route-id="@airport.Id">Удалить</a> </td>
+                </tr>
+            }
+        </table>
+        <br/>
+    }
+    <p><a asp-controller="Airport" asp-action="Edit">Создать</a></p>
+</body>
+</html>

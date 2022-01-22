@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Business.Interop.TicketDto>
+@{
+    ViewData["Title"] = "Билеты";
+}
+
+<!DOCTYPE html>
+
+<html>
+    <body>
+        @if(!Model.Any())
+    {
+        <p>Билетов нет, добавьте новый</p>
+    }
+    else
+    {
+         <table class="table">
+            <tr>
+                <th>ФИО</th>
+                <th>Номер места</th>
+                <th>Номер рейса</th>
+            </tr>
+            @foreach (var ticket in Model)
+            {
+                <tr>
+                    <td>@ticket.Person.Fio</td>
+                    <td>@ticket.Seat.Num</td>
+                    <td>@ticket.Flight.Id</td>
+                    <td><a asp-controller="Ticket" asp-action="Home" asp-route-id="@ticket.Id">Подробности</a></td>
+                    <td><a asp-controller="Ticket" asp-action = "Delete" asp-route-id="@ticket.Id">Удалить</a> </td>
+                </tr>
+            }
+        </table>
+        <br/>
+    }
+    <p><a asp-controller="Ticket" asp-action="Edit">Создать</a></p>
+</body>
+</html>

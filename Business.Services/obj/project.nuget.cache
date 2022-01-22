@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "04f5/iCPEKW3P66DhBIYa7AnoG13bAXQOwZ1Qba8Ii+0E7ucY7P3BjnMjILwBMUG8yJOGNV0J2oYqk0CIgQqQg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sergr\\Desktop\\LabFlight\\Business.Services\\Business.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sergr\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\sergr\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

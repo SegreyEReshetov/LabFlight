@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Business.Interop.FlightDto>
+@{
+    ViewData["Title"] = "Рейсы";
+}
+
+<!DOCTYPE html>
+
+<html>
+    <body>
+        @if(!Model.Any())
+    {
+        <p>Рейсов нет, добавьте новый</p>
+    }
+    else
+    {
+         <table class="table">
+            <tr>
+            <th>Номер</th>
+            <th>Статус</th>
+            <th>Аэропорт</th>
+            <th>Дата вылета</th>
+            <th>Дата прилета</th>
+            </tr>
+            @foreach (var Flight in Model)
+            {
+                <tr>
+                    <td>@Flight.Id</td>
+                    <td>@Flight.FlightStatus.Name</td>
+                    <td>@Flight.DepartureAirport.Name</td>
+                    <td>@Flight.Arrival</td>
+                    <td>@Flight.Departure</td>
+                    <td><a asp-controller="Flight" asp-action="Home" asp-route-id="@Flight.Id">Подробности</a></td>
+                    <td><a asp-controller="Flight" asp-action = "Delete" asp-route-id="@Flight.Id">Удалить</a> </td>
+                </tr>
+            }
+        </table>
+        <br/>
+    }
+    <p><a asp-controller="Flight" asp-action="Edit">Создать</a></p>
+</body>
+</html>
